@@ -74,4 +74,4 @@ gg_beardplot(data = mpg, x=cty, smile = T, outliers = T)
 gg_beardplot(data = mpg, x=cty, group=drv, smile = T, outliers = T)
 gg_beardplot(data = mpg, x=cty, group=cyl, outliers = T, smile = F, width_boxplot = 0.5, beard_fullness = 30, distance = 1 )
 
-gg_beardplot(data = datasets::airquality, x=Ozone, group = Month, outliers = F, smile = F, width_boxplot = 0.05, beard_fullness = 300, distance = 5 )
+gg_beardplot(data = datasets::airquality, x=Ozone, group = Month, outliers = T, smile = F, width_boxplot = 0.05, beard_fullness = 300, distance = 5 )

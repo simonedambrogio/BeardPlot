@@ -19,10 +19,10 @@ density_groups <- function(data, x, group, beard_fullness, distance, outliers){
                                              data[data$group==lev, ] %>% pull(x) < limits[2])
       })
       
-      dens <- data[data$group==lev, ] %>% pull(x) %>% density(n=beard_fullness, from = min(.), to = max(.), na.rm = TRUE)
+      dens <- data[data$group==lev, ] %>% pull(x) %>% na.omit() %>% density(n=beard_fullness, from = min(.), to = max(.), na.rm = TRUE)
       ddf <- data.frame(X = dens$x, density = dens$y, group = lev)
     } else {
-      dens <- data[data$group==lev, ] %>% pull(x) %>% density(n=beard_fullness, from = min(.), to = max(.), na.rm = TRUE)
+      dens <- data[data$group==lev, ] %>% pull(x) %>% na.omit() %>% density(n=beard_fullness, from = min(.), to = max(.), na.rm = TRUE)
       ddf <- data.frame(X = dens$x, density = dens$y, group = lev)
     }
     
