@@ -4,9 +4,9 @@ gg_beardplot <- function(data, x, group, beard_fullness=40, outliers=FALSE, dist
   library(ggplot2)
   source('/home/simone/Scrivania/BeardPlot/utilities.r')
   
+  
   ddf <- density_groups(data = data, x = x, group = group, beard_fullness=beard_fullness, distance=distance, outliers=outliers)
-  ddf_bp <- boxplot_position(ddf, data=data, group=group)
-  names(data)[which(x == data[1, ])] <- 'x'
+  names(data)[apply(na.omit(data==x), 2, all)] <- 'x'
   
   if(missing(group)){
     
@@ -34,14 +34,16 @@ gg_beardplot <- function(data, x, group, beard_fullness=40, outliers=FALSE, dist
     
   } else {
     
+    ddf_bp <- boxplot_position(ddf=ddf, data=data, group=group, x=x)
+    
     if(outliers==TRUE){
       box <- geom_boxplot(data = ddf_bp, 
-                          aes(y = x, color=group, x=-xmin),
-                          width = .2 * max(ddf$xmax) * width_boxplot)
+                          aes(y = x, color=as.factor(group), x=-xmin),
+                          width = .1 * max(ddf$xmax) * width_boxplot)
     } else {
       box <- geom_boxplot(data = ddf_bp, 
-                          aes(y = x, color=group, x=-xmin ),
-                          width = .2 * max(ddf$xmax) * width_boxplot,
+                          aes(y = x, color=as.factor(group), x=-xmin ),
+                          width = .1 * max(ddf$xmax) * width_boxplot,
                           outlier.shape = NA)
     }
       
@@ -65,8 +67,11 @@ gg_beardplot <- function(data, x, group, beard_fullness=40, outliers=FALSE, dist
   return(p)
 }
 
-gg_beardplot(data = dat, x=x, group=group, smile = T, outliers = T)
-gg_beardplot(data = mpg, x=cty, group=class ,  outliers = F)
+gg_beardplot(data = mpg, x=cty)
+gg_beardplot(data = mpg, x=cty, smile = T)
+gg_beardplot(data = mpg, x=cty, smile = T, outliers = T)
 
-ggplot(data = mpg, aes(cty, x=0) )+
-  geom_boxplot( )
+gg_beardplot(data = mpg, x=cty, group=drv, smile = T, outliers = T)
+gg_beardplot(data = mpg, x=cty, group=cyl, outliers = T, smile = F, width_boxplot = 0.5, beard_fullness = 30, distance = 1 )
+
+gg_beardplot(data = datasets::airquality, x=Ozone, group = Month, outliers = F, smile = F, width_boxplot = 0.05, beard_fullness = 300, distance = 5 )
