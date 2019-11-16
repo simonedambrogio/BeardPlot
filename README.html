@@ -367,7 +367,7 @@ summary {
 
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>The gg_beardplot package provide ad easy tool based on ggplo2 to visualize the distribution of the data and its probability density. It is similar to the violin plot, the rain-cloud-plot, the bean plot and others of this kind, but the gg_beardplot reproduce the famous Fisher beard ;)</p>
+<p>The <strong>gg_beardplot</strong> package provide ad easy tool based on ggplo2 to visualize the distribution of the data and its probability density. It is similar to the violin plot, the rain-cloud-plot, the bean plot and others of this kind, but the gg_beardplot reproduce the famous Fisher beard ;)</p>
 </div>
 <div id="how-to-use-brms" class="section level2">
 <h2>How to use brms</h2>
@@ -398,7 +398,8 @@ labs &lt;- labs( y = &quot;&quot;, x = &quot;Groups&quot;)
 p5 &lt;- gg_beardplot(data = mpg, x = cty, group = drv) +
         theme + labs
 
-#Talking about style, the beard thickness can be controlled (beard_fullness=). The default value is 40, and represents the number of lines for each plot
+#Talking about style, the beard thickness can be controlled (beard_fullness=). 
+#The default value is 40, and represents the number of lines for each plot
 p6 &lt;- gg_beardplot(data = mpg, x = cty, group = drv, beard_fullness=15)+
         theme + labs
 

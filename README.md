@@ -1,7 +1,7 @@
 Overview
 --------
 
-The gg\_beardplot package provide ad easy tool based on ggplo2 to
+The **gg\_beardplot** package provide ad easy tool based on ggplo2 to
 visualize the distribution of the data and its probability density. It
 is similar to the violin plot, the rain-cloud-plot, the bean plot and
 others of this kind, but the gg\_beardplot reproduce the famous Fisher
@@ -47,7 +47,8 @@ labs <- labs( y = "", x = "Groups")
 p5 <- gg_beardplot(data = mpg, x = cty, group = drv) +
         theme + labs
 
-#Talking about style, the beard thickness can be controlled (beard_fullness=). The default value is 40, and represents the number of lines for each plot
+#Talking about style, the beard thickness can be controlled (beard_fullness=). 
+#The default value is 40, and represents the number of lines for each plot
 p6 <- gg_beardplot(data = mpg, x = cty, group = drv, beard_fullness=15)+
         theme + labs
 
