@@ -1,23 +1,28 @@
-Overview
---------
+---
+output:
+  md_document:
+    variant: markdown_github
+---
 
-The gg\_beardplot package provide ad easy tool based on ggplo2 to
-visualize the distribution of the data and its probability density. It
-is similar to the violin plot, the rain-cloud-plot, the bean plot and
-others of this kind, but the gg\_beardplot reproduce the famous Fisher
-beard ;)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=10, fig.height=6)
+```
 
-How to use brms
----------------
+## Overview
 
-``` r
+The **gg_beardplot** package provide ad easy tool based on ggplo2 to visualize the distribution of the data and its probability density.
+It is similar to the violin plot, the rain-cloud-plot, the bean plot and others of this kind, but the gg_beardplot reproduce the famous Fisher beard ;)
+
+## How to use brms
+
+```{r message=FALSE}
 source("gg_beardplot.R")
 library(ggpubr)
 ```
 
-Let’s start with 3 simple examples
+Let's start with 3 simple examples
 
-``` r
+```{r}
 #Basic case
 p1 <- gg_beardplot(data = mpg, x = cty)
 
@@ -34,11 +39,11 @@ p4 <- gg_beardplot(data = mpg, x = cty, outliers = TRUE, smile = TRUE,
 ggarrange(p1, p2, p3, p4)
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-2-1.png)
+
 
 Plot different groups!
 
-``` r
+```{r groups}
 #set theme 
 theme <- theme(legend.position = c(0.7, 0.2), axis.text.y = element_blank(), 
                axis.ticks=element_blank()) 
@@ -58,4 +63,3 @@ p7 <- gg_beardplot(data = mpg, x = cty, group = drv, beard_fullness=20) +
 ggarrange(p5, p6, p7, ncol = 3)
 ```
 
-![](README_files/figure-markdown_github/groups-1.png)
