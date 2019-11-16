@@ -1,4 +1,4 @@
-<img src="figures/logo.png" style="width:10.0%" />
+<img src="figures/logo.png" width="120" />
 
 Overview
 --------
