@@ -1,4 +1,4 @@
-gg_beardplot <- function(data, x, group, beard_fullness=40, outliers=FALSE, distance=1, width_boxplot=1, smile=FALSE){
+gg_beardplot <- function(data, x, group, beard_fullness=40, outliers=FALSE, distance=1, width_boxplot=1, smile=FALSE, color){
   
   library(dplyr)
   library(ggplot2)
@@ -10,14 +10,17 @@ gg_beardplot <- function(data, x, group, beard_fullness=40, outliers=FALSE, dist
   
   if(missing(group)){
     
+    if(missing(color)){ color='black' } else {color=color}
     if(outliers==TRUE){
     box <- geom_boxplot(data = data, 
                         aes(y = x),
+                        color=color,
                         width = .2 * max(ddf$xmax) * width_boxplot,
                         position = position_nudge( x = abs(unique(ddf$xmin)) ) )
     }else{
       box <- geom_boxplot(data = data, 
                           aes(y = x),
+                          color=color,
                           width = .2 * max(ddf$xmax) * width_boxplot,
                           position = position_nudge( x = abs(unique(ddf$xmin)) ),
                           outlier.shape = NA)
@@ -25,14 +28,17 @@ gg_beardplot <- function(data, x, group, beard_fullness=40, outliers=FALSE, dist
     
     
     seg <- geom_segment(data = ddf,
+                        color=color,
                         aes(x=-xmax, xend=-xmin, y=y, yend=y), 
                         size = 1)
     
     if (smile == TRUE){
-      smile <- geom_path( data = ddf,aes(x=-xmax, y=y))
+      smile <- geom_path( data = ddf, aes(x=-xmax, y=y), color=color)
     } else { smile <- theme_bw() }
     
   } else {
+    
+    
     
     ddf_bp <- boxplot_position(ddf=ddf, data=data, group=group, x=x)
     
@@ -67,7 +73,7 @@ gg_beardplot <- function(data, x, group, beard_fullness=40, outliers=FALSE, dist
   return(p)
 }
 
-gg_beardplot(data = mpg, x=cty)
+gg_beardplot(data = mpg, x=cty, color = 'red')
 gg_beardplot(data = mpg, x=cty, smile = T)
 gg_beardplot(data = mpg, x=cty, smile = T, outliers = T)
 

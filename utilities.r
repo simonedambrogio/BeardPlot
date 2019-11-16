@@ -1,14 +1,15 @@
 #density_groups
 density_groups <- function(data, x, group, beard_fullness, distance, outliers){
   
+  attach(data)
   source('/home/simone/Dropbox/UNIVERSITÀ/Statistica/R/Funzioni/df_lapply.R')
-  
+  #attach(data)
   if( missing(group) ){
     data$group <- 'a'
   } else { names(data)[apply(na.omit(data==group), 2, all)] <- 'group'  }
   
   names(data)[apply(na.omit(data==x), 2, all)] <- 'x'
-  
+  detach(data)
   d <- df_lapply( data %>% select(group) %>% unique() %>% pull() %>% as.character(), function(lev){
     
     if(outliers == FALSE){
