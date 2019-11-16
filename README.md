@@ -1,3 +1,5 @@
+<img src="/home/simone/Scrivania/BeardPlot/logo/Schermata%20da%202019-11-16%2020-20-02.png" style="width:10.0%" />
+
 Overview
 --------
 

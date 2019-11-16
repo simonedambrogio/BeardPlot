@@ -8,6 +8,8 @@ output:
 knitr::opts_chunk$set(echo = TRUE, fig.width=10, fig.height=6)
 ```
 
+![](/home/simone/Scrivania/BeardPlot/logo/Schermata da 2019-11-16 20-20-02.png){width=10%}
+
 ## Overview
 
 The **gg_beardplot** package provide ad easy tool based on ggplo2 to visualize the distribution of the data and its probability density.
