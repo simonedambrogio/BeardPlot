@@ -8,7 +8,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE, fig.width=10, fig.height=6)
 ```
 
-![](/home/simone/Scrivania/BeardPlot/logo/Schermata da 2019-11-16 20-20-02.png){width=10%}
+![](figures/logo.png){width=10%}
 
 ## Overview
 
