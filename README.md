@@ -22,20 +22,7 @@ Let’s start with 3 simple examples
 ``` r
 #Basic case
 p1 <- gg_beardplot(data = mpg, x = cty)
-```
 
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` r
 #include the outliers
 p2 <-gg_beardplot(data = mpg, x = cty, outliers = TRUE)
 

@@ -376,18 +376,9 @@ summary {
 library(ggpubr)</code></pre>
 <p>Let’s start with 3 simple examples</p>
 <pre class="r"><code>#Basic case
-p1 &lt;- gg_beardplot(data = mpg, x = cty)</code></pre>
-<pre><code>## 
-## Attaching package: 'dplyr'
+p1 &lt;- gg_beardplot(data = mpg, x = cty)
 
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code>#include the outliers
+#include the outliers
 p2 &lt;-gg_beardplot(data = mpg, x = cty, outliers = TRUE)
 
 #include the density line

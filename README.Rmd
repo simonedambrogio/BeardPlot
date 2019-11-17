@@ -5,7 +5,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.width=10, fig.height=6)
+knitr::opts_chunk$set(echo = TRUE, fig.width=10, fig.height=6, message=FALSE)
 ```
 
 ![](figures/logo.png){width=120}
