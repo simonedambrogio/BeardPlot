@@ -9,8 +9,8 @@ is similar to the violin plot, the rain-cloud-plot, the bean plot and
 others of this kind, but the gg\_beardplot reproduce the famous Fisher
 beard ;)
 
-How to use brms
----------------
+How to use gg\_beardplot
+------------------------
 
 ``` r
 source("gg_beardplot.R")

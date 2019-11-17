@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.width=10, fig.height=6, message=FALSE)
 The **gg_beardplot** package provide ad easy tool based on ggplo2 to visualize the distribution of the data and its probability density.
 It is similar to the violin plot, the rain-cloud-plot, the bean plot and others of this kind, but the gg_beardplot reproduce the famous Fisher beard ;)
 
-## How to use brms
+## How to use gg_beardplot
 
 ```{r message=FALSE}
 source("gg_beardplot.R")
