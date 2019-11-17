@@ -2,11 +2,10 @@
 density_groups <- function(data, x, group, beard_fullness, distance, outliers){
   
   attach(data)
-  source('/home/simone/Dropbox/UNIVERSITÀ/Statistica/R/Funzioni/df_lapply.R')
   #attach(data)
   if( missing(group) ){
     data$group <- 'a'
-  } else { names(data)[apply(na.omit(data==group), 2, all)] <- 'group'  }
+  } else { names(data)[apply(na.omit(data==as.character(group)), 2, all)] <- 'group'  }
   
   names(data)[apply(na.omit(data==x), 2, all)] <- 'x'
   detach(data)
@@ -48,7 +47,7 @@ density_groups <- function(data, x, group, beard_fullness, distance, outliers){
 } 
 
 #density_groups(data = dat, x = x, group = group, beard_fullness=40, distance=1, outliers=T)
-#density_groups(data = mpg, x = 'cty', group = 'drv', beard_fullness=40, distance=1, outliers=F)
+#density_groups(data = mpg, x = cty, group = drv, beard_fullness=40, distance=1, outliers=F)
 
 #outliers
 IQR.outliers <- function(x) {
@@ -69,7 +68,7 @@ IQR.outliers <- function(x) {
 #dataset for boxplot
 boxplot_position <- function(ddf, data, group, x){
   
-  names(data)[apply(na.omit(data==group), 2,all)] <- 'group'
+  names(data)[apply(na.omit(data==as.character(group)), 2,all)] <- 'group'
   names(data)[apply(na.omit(data==x), 2, all)] <- 'x'
   
   d <- sapply(split(ddf$xmin, ddf$group), unique)
@@ -78,3 +77,6 @@ boxplot_position <- function(ddf, data, group, x){
   }
   return(data)
 }
+
+#df_lapply
+df_lapply <- function(X, FUN) do.call(rbind.data.frame, lapply(X, FUN))
