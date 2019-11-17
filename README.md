@@ -1,5 +1,4 @@
 <img src="figures/logo.png" width="120" />
-<img src="figures/Ronald_Fisher.png" width="120" />
 
 Overview
 --------
