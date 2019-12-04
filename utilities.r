@@ -5,9 +5,9 @@ density_groups <- function(data, x, group, beard_fullness, distance, outliers){
   #attach(data)
   if( missing(group) ){
     data$group <- 'a'
-  } else { names(data)[apply(na.omit(data==as.character(group)), 2, all)] <- 'group'  }
+  } else { names(data)[apply( data[which(!is.na(group)),]==as.character(group[which(!is.na(group))]), 2, all)] <- 'group'  }
   
-  names(data)[apply(na.omit(data==x), 2, all)] <- 'x'
+  names(data)[apply(data[which(!is.na(x)),]==x[which(!is.na(x))], 2, all)] <- 'x'
   detach(data)
   d <- df_lapply( data %>% select(group) %>% unique() %>% pull() %>% as.character(), function(lev){
     
@@ -68,8 +68,8 @@ IQR.outliers <- function(x) {
 #dataset for boxplot
 boxplot_position <- function(ddf, data, group, x){
   
-  names(data)[apply(na.omit(data==as.character(group)), 2,all)] <- 'group'
-  names(data)[apply(na.omit(data==x), 2, all)] <- 'x'
+  names(data)[apply( data[which(!is.na(group)),]==as.character(group[which(!is.na(group))]), 2, all)] <- 'group'
+  names(data)[apply(data[which(!is.na(x)),]==x[which(!is.na(x))], 2, all)] <- 'x'
   
   d <- sapply(split(ddf$xmin, ddf$group), unique)
   for(i in 1:length(d)){

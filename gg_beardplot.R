@@ -6,7 +6,7 @@ gg_beardplot <- function(data, x, group, beard_fullness=40, outliers=FALSE, dist
   
   
   ddf <- density_groups(data = data, x = x, group = group, beard_fullness=beard_fullness, distance=distance, outliers=outliers)
-  names(data)[apply(na.omit(data==x), 2, all)] <- 'x'
+  names(data)[apply(data[which(!is.na(x)),]==x[which(!is.na(x))], 2, all)] <- 'x'
   
   if(missing(group)){
     
